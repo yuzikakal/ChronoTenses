@@ -58,11 +58,38 @@ body {
   overflow-x: hidden; /* Mencegah scroll samping yang tidak sengaja */
 }
 
-/* Sembunyikan scrollbar pada panel */
-.scrollbar-hide::-webkit-scrollbar {
-    display: none;
+/* =========================================
+   CUSTOM SCROLLBAR UTILITIES (Tailwind v4)
+   ========================================= */
+
+@utility scrollbar-hide {
+  /* Sembunyikan scrollbar (Untuk mobile) */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
 }
-.scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+@utility scrollbar-thin {
+  /* Tampilkan scrollbar tipis (Untuk Desktop) */
+  scrollbar-width: thin; /* Firefox */
+  /* Warna Thumb (Emas Chrono) dan Track (Putih sangat tipis) untuk Firefox */
+  scrollbar-color: var(--color-chrono-gold) rgba(255, 255, 255, 0.05); 
+
+  &::-webkit-scrollbar {
+    width: 8px; /* Diperbesar dari 6px biar lebih gampang disentuh */
+  }
+  &::-webkit-scrollbar-track {
+    /* Diberi warna putih sangat tipis (5% opacity) agar browser memaksa scroll muncul terus */
+    background: rgba(255, 255, 255, 0.05); 
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-chrono-gold); /* Warna Emas Chrono */
+    border-radius: 10px; /* Bulat */
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #FFF8DC; /* Lebih terang saat di-hover */
+  }
 }

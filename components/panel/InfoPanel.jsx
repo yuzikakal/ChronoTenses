@@ -38,7 +38,7 @@ export default function InfoPanel() {
         </h1>
 
         {/* Scrollable */}
-        <div className="flex-1 overflow-y-auto pr-2 space-y-6 text-chrono-text scrollbar-hide">
+        <div className="flex-1 overflow-y-auto pr-2 space-y-6 text-chrono-text scrollbar-hide md:scrollbar-thin">
           {/* Main Description */}
           <div className="bg-white/5 border border-white/10 p-6 rounded-[2rem] shadow-inner relative overflow-hidden group">
             <Sparkles className="absolute -right-2 -top-2 text-chrono-gold/20 size-16 rotate-12 group-hover:scale-110 transition-transform" />

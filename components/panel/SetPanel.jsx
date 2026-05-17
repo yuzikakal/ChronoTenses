@@ -52,7 +52,7 @@ export default function SetPanel() {
         </h1>
 
         {/* Bagian isi dengan overflow */}
-        <div className="flex-1 overflow-y-auto pr-2 space-y-6 scrollbar-hide">
+        <div className="flex-1 overflow-y-auto pr-2 space-y-6 text-chrono-text scrollbar-hide md:scrollbar-thin">
           
           <p className="text-center text-chrono-text opacity-80 italic text-lg">
             Adjust your time-travel frequencies
