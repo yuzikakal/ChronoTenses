@@ -2,17 +2,17 @@
 "use client"
 import Image from "next/image"
 import { useState, useEffect, useCallback } from "react"
-import TextBox from "@/components/TextBox" // Komponen tampilan kotak RPG-mu
-import { useTypewriter } from "@/app/hooks/useTypewriter" // hook
-import { useMenu } from "@/app/hooks/menuContext" // untuk akses setting suara
+import TextBox from "@/components/TextBox"
+import { useTypewriter } from "@/app/hooks/useTypewriter"
+import { useMenu } from "@/app/hooks/menuContext"
 
 interface HubProps {
   onPilihEra: (pilihan: string) => void
 }
 
 export default function Hub({ onPilihEra }: HubProps) {
-  const teksHub = "Which time should we visit first, friend?"
-  const { textSpeed, sfxVolume, playSfx } = useMenu(); 
+  const teksHub = "Which time should we visit first, my friend?"
+  const { textSpeed, playSfx } = useMenu(); 
 
   const [typingTrigger, setTypingTrigger] = useState(0)
   const { displayedText, isTyping, skip } = useTypewriter(
@@ -21,16 +21,14 @@ export default function Hub({ onPilihEra }: HubProps) {
     typingTrigger,
   )
 
-  // 3. Fungsi jika kotak RPG diklik
   const handleTextBoxClick = useCallback(() => {
     if (isTyping) {
-      skip() // Kalau masih ngetik, langsung tamatkan
+      skip()
     } else {
       setTypingTrigger((prev) => prev + 1)
     }
   }, [isTyping, skip])
 
-  // Keyboard listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === " ") {
@@ -43,73 +41,72 @@ export default function Hub({ onPilihEra }: HubProps) {
   }, [handleTextBoxClick])
 
   return (
-    <div className="flex flex-col items-center xl:place-items-baseline fixed inset-0 w-full h-full overflow-hidden">
-      <div className="flex flex-col justify-start md:justify-center gap-4 h-full w-full xl:w-5xl px-5 pt-24 md:pt-0 pb-40 xl:pb-30 xl:pl-60 overflow-y-auto">
+    // Container utama: Di Mobile colom (bawah-an), di MD keatas jadi baris (kiri-kanan)
+    <div className="fixed inset-0 w-full h-full flex flex-col md:flex-row overflow-hidden">
+      
+      {/* BAGIAN KIRI: TOMBOL-TOMBOL ERA */}
+      <div className="flex-1 flex flex-col justify-center gap-4 h-full px-5 pt-24 md:pt-0 md:px-10 xl:pl-50 2xl:pl-70 xl:pr-0 pb-40 overflow-y-auto">
         {/* Tombol PAST */}
         <button
-          onClick={() => onPilihEra("past")}
-          className="text-chrono-dark px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center
-        bg-gradient-to-r from-yellow-400 to-orange-500 border-b-4 border-orange-800 shadow-xl"
+          onClick={() => { playSfx('click'); onPilihEra("past") }}
+          className="text-chrono-dark px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-yellow-400 to-orange-500 border-b-4 border-orange-800 shadow-xl"
         >
           PAST
-          <Image
-            src="/jam.png"
-            alt="past time"
-            width={80}
-            height={80}
-            className="w-16 h-16 xl:w-28 xl:h-28 motion-safe:animate-[spin_4s_linear_infinite_reverse]"
-            loading="eager"
-            draggable="false"
-          />
+          <Image src="/jam.png" alt="past time" width={80} height={80} className="w-16 h-16 xl:w-28 xl:h-28 motion-safe:animate-[spin_4s_linear_infinite_reverse]" loading="eager" draggable="false" />
         </button>
 
         {/* Tombol PRESENT */}
         <button
-          onClick={() => onPilihEra("present")}
-          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center
-        bg-gradient-to-r from-cyan-500 to-blue-600 border-b-4 border-blue-900 shadow-xl"
+          onClick={() => { playSfx('click'); onPilihEra("present") }}
+          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-cyan-500 to-blue-600 border-b-4 border-blue-900 shadow-xl"
         >
           PRESENT
-          <Image
-            src="/jamR.png"
-            alt="present time"
-            width={80}
-            height={80}
-            className="w-16 h-16 xl:w-28 xl:h-28"
-            loading="eager"
-            draggable="false"
-          />
+          <Image src="/jamR.png" alt="present time" width={80} height={80} className="w-16 h-16 xl:w-28 xl:h-28" loading="eager" draggable="false" />
         </button>
 
         {/* Tombol FUTURE */}
         <button
-          onClick={() => onPilihEra("future")}
-          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center
-        bg-gradient-to-r from-purple-600 to-indigo-600 border-b-4 border-indigo-900 shadow-xl"
+          onClick={() => { playSfx('click'); onPilihEra("future") }}
+          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-purple-600 to-indigo-600 border-b-4 border-indigo-900 shadow-xl"
         >
           FUTURE
-          <Image
-            src="/jam.png"
-            alt="future time"
-            width={80}
-            height={80}
-            className="w-16 h-16 xl:w-28 xl:h-28 motion-safe:animate-[spin_4s_linear_infinite]"
-            loading="eager"
-            draggable="false"
-          />
+          <Image src="/jam.png" alt="future time" width={80} height={80} className="w-16 h-16 xl:w-28 xl:h-28 motion-safe:animate-[spin_4s_linear_infinite]" loading="eager" draggable="false" />
         </button>
       </div>
 
-      {/* TextBox */}
-      <div className="fixed bottom-0 flex justify-center w-full px-4 pb-10">
+      {/* BAGIAN KANAN: KARAKTER CHRONO (HIDDEN DI MOBILE) */}
+      <div className="hidden md:flex w-1/3 lg:w-2/5 items-center justify-center pointer-events-none select-none pr-5 lg:pr-10 pb-20">
+        <div className="animate-breathe">
+          <Image
+            src="/characters/chrono-hmm.png"
+            alt="Chrono"
+            width={400}
+            height={500}
+            className="w-64 lg:w-80 xl:w-96 drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* TEXTBOX */}
+      <div className="fixed bottom-0 flex justify-center w-full px-4 pb-10 z-30">
         <TextBox
           speakerName="CHRONO"
           displayedText={displayedText}
-          displayNext=""
+          displayNext={
+            <Image 
+              src="/characters/chrono-icon.png"
+              alt="Next"
+              width={30}
+              height={30}
+              className="drop-shadow-md size-8 md:size-10 xl:size-12 animate-bounce"
+            />
+          }
           isTyping={isTyping}
           onClick={handleTextBoxClick}
         />
       </div>
+
     </div>
   )
 }
