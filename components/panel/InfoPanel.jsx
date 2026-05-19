@@ -8,7 +8,7 @@ import Image from "next/image";
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["700"] });
 
 export default function InfoPanel() {
-  const { setIsInfoOpen } = useMenu();
+  const { setIsInfoOpen, playSfx } = useMenu();
 
   return (
     <div
@@ -24,7 +24,7 @@ export default function InfoPanel() {
 
         {/* Close */}
         <button
-          onClick={() => setIsInfoOpen(false)}
+          onClick={() => { setIsInfoOpen(false); playSfx('click'); }}
           className="absolute top-6 right-6 bg-chrono-gold text-chrono-dark p-2 rounded-full hover:scale-110 active:scale-90 transition-all z-10 shadow-lg"
         >
           <X size={24} strokeWidth={3} />

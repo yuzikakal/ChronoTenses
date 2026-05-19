@@ -1,5 +1,6 @@
 // components/ResetPanel.tsx
 "use client";
+import { useMenu } from "@/app/hooks/menuContext";
 import { Cinzel } from "next/font/google";
 
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["700", "900"] });
@@ -10,6 +11,13 @@ interface ResetPanelProps {
 }
 
 export default function ResetPanel({ onClose, onConfirm }: ResetPanelProps) {
+
+  const { playSfx } = useMenu();
+
+  const Konfirmo = () => {
+    playSfx('click');
+    onConfirm();
+  };
   return (
     <div 
       // Background gelap nge-blur, klik di luar kotak akan menutup panel
@@ -43,7 +51,7 @@ export default function ResetPanel({ onClose, onConfirm }: ResetPanelProps) {
           
           {/* Tombol Eksekusi Reset */}
           <button 
-            onClick={onConfirm} 
+            onClick={Konfirmo} 
             className="flex-1 px-4 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl shadow-[0_0_15px_rgba(220,38,38,0.4)] transition-all active:scale-95"
           >
             Yes, Restart

@@ -168,6 +168,13 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
     });
 
     setIsChecking(false);
+     if (isCorrect) {
+      playSfx("correct"); 
+      playSfx("yeay"); 
+    } else {
+      playSfx("wrong");
+    }
+
     onBack(isCorrect, explanation, soal.text, userAnswer, soal.answer, soal.hint, soal.context || "");
   };
 

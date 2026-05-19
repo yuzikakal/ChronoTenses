@@ -1,9 +1,11 @@
 "use client";
+import { useMenu } from "@/app/hooks/menuContext";
 import { RefreshCw } from "lucide-react";
 
 export default function EnergyCrystal({ points, onReset }: { points: number; onReset: () => void }) {
   const maxPoints = 100;
   const percentage = Math.min(Math.max((points / maxPoints) * 100, 0), 100);
+  const { playSfx } = useMenu();
 
   let barGradient = "from-red-500 to-red-400";
   let glowShadow = "shadow-red-500/60";
@@ -47,7 +49,10 @@ export default function EnergyCrystal({ points, onReset }: { points: number; onR
       {/* Tombol Restart */}
       <div className="shrink-0 z-10">
         <button
-          onClick={onReset}
+          onClick={() => {
+            playSfx('click');
+            onReset();
+          }}
           className="bg-red-900/80 hover:bg-red-600 text-white p-2 md:px-5 md:py-2 rounded-full md:rounded-xl shadow-lg border-2 border-red-950 backdrop-blur-sm transition-all active:scale-95 cursor-pointer flex items-center justify-center gap-2 group"
           title="Restart Game"
         >

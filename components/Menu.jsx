@@ -8,6 +8,24 @@ import InfoPanel from "@/components/panel/InfoPanel";
 export default function Menu() {
   const { isSetOpen, setIsSetOpen, isInfoOpen, setIsInfoOpen } = useMenu();
   const [isOpen, setIsOpen] = useState(false);
+  const {playSfx} = useMenu();
+
+  const toggleInfo = () => {
+    playSfx('click');
+    setIsInfoOpen(!isInfoOpen);
+    if (isSetOpen) setIsSetOpen(false); // Tutup set panel jika info dibuka
+  };
+
+  const toggleSet = () => {
+    playSfx('click');
+    setIsSetOpen(!isSetOpen);
+    if (isInfoOpen) setIsInfoOpen(false); // Tutup info panel jika set dibuka
+  }
+
+  const toggleMenu = () => {
+    playSfx('click');
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -26,7 +44,7 @@ export default function Menu() {
           ${isOpen ? "h-40 md:h-56 opacity-100 py-4 mb-2" : "h-0 opacity-0 py-0 mb-0"}
         `}>
           <button 
-            onClick={() => {setIsInfoOpen(true); setIsSetOpen(false)}} 
+            onClick={toggleInfo}
             className="text-chrono-text hover:text-chrono-gold hover:scale-110 transition-all"
           >
             <Info className="size-7 md:size-9" />
@@ -36,7 +54,7 @@ export default function Menu() {
           <div className="w-8 h-[1px] bg-white/10"></div>
 
           <button 
-            onClick={() => {setIsSetOpen(true); setIsInfoOpen(false)}} 
+            onClick={toggleSet}
             className="text-chrono-text hover:text-chrono-gold hover:scale-110 transition-all"
           >
             <Settings className="size-7 md:size-9" />
@@ -45,7 +63,7 @@ export default function Menu() {
 
         {/* Toggle Button (Trigger) */}
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleMenu}
           className={`
             /* Gunakan warna emas untuk tombol utama agar pop-out */
             bg-chrono-gold text-chrono-dark p-3 md:p-5 rounded-full 

@@ -43,11 +43,16 @@ export function MenuProvider({ children }) {
     // Map nama suara ke file path
     const sfxMap = {
       click: '/sfx/click.mp3',
-      success: '/sfx/success.mp3',
+      success: '/sfx/clear.mp3',
       error: '/sfx/error.mp3',
       hint: '/sfx/hint.mp3',
       transition: '/sfx/transition.mp3',
-      loading: '/sfx/loading.mp3'
+      loading: '/sfx/loading.mp3',
+      flip: '/sfx/flip.mp3',
+      typing: '/sfx/typing.mp3',
+      correct: '/sfx/correct.mp3',
+      wrong: '/sfx/wrong.mp3',
+      yeay: '/sfx/yeay.mp3',
     };
 
     const src = sfxMap[soundName];

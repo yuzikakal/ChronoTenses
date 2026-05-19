@@ -105,7 +105,7 @@ export default function SetPanel() {
                 type="range" min="0" max="1" step="0.1" 
                 value={sfxVolume}
                 // Saat user geser slider SFX, langsung bunyikan klik biar tau kerasanya
-                onChange={(e) => { handleSfxVolumeChange(parseFloat(e.target.value)); playSfx('hint'); }} 
+                onChange={(e) => { handleSfxVolumeChange(parseFloat(e.target.value)); playSfx('click'); }} 
                 className="w-full h-4 bg-chrono-dark border border-white/10 rounded-full appearance-none cursor-pointer accent-magic-purple shadow-inner"
               />
               <div className="flex justify-between text-[10px] font-black text-chrono-gold/60 tracking-widest px-1">

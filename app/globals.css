@@ -94,9 +94,7 @@ body {
   }
 }
 
-/* =========================================
-   PSEUDO-LIVE2D ANIMATION
-   ========================================= */
+/* PSEUDO-LIVE2D ANIMATION */
 
 @keyframes breathe {
   0%, 100% { 
@@ -120,9 +118,7 @@ body {
   animation: breathe 4s ease-in-out infinite, shadow-pulse 4s ease-in-out infinite;
 }
 
-/* =========================================
-   FADE IN ANIMATION
-   ========================================= */
+/* FADE IN and FADE OUT ANIMATION */
 
 @keyframes fadeIn {
   0% { 
@@ -137,4 +133,19 @@ body {
 
 @utility animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards; /* 0.5s durasi fade in */
+}
+
+@keyframes fadeOut {
+  0% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  100% { 
+    opacity: 0; 
+    transform: scale(0.95); /* Sedikit mengecil saat menghilang */
+  }
+}
+
+@utility animate-fade-out {
+  animation: fadeOut 0.3s ease-in forwards; /* 0.3s sesuai dengan setTimeout di React */
 }
