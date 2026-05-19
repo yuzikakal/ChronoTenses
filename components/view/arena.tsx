@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
-import Image from "next/image"; 
+import Image from "next/image";
 import { generateAISoal, checkAIAnswer, type Soal } from "@/lib/aiService";
-import TextBox from "@/components/TextBox"; 
+import TextBox from "@/components/TextBox";
 import { useTypewriter } from "@/app/hooks/useTypewriter";
 import { useMenu } from "@/app/hooks/menuContext";
 
@@ -16,8 +16,8 @@ type ArenaProps = {
     lastSoalText: string,
     userAnswer: string,
     correctAnswer: string,
-    hint: string,         
-    context: string       
+    hint: string,
+    context: string
   ) => void;
   onUseHint: () => void;
 };
@@ -64,11 +64,11 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
   const [loading, setLoading] = useState(true);
   const [isChecking, setIsChecking] = useState(false);
   const [showHint, setShowHint] = useState(false);
-  const { textSpeed, sfxVolume, playSfx } = useMenu(); 
+  const { textSpeed, sfxVolume, playSfx } = useMenu();
 
   const clockAudioRef = useRef<HTMLAudioElement | null>(null);
 
-    // EFEK SFX JAM BERPUTAR (LOADING)
+  // EFEK SFX JAM BERPUTAR (LOADING)
   useEffect(() => {
     if (loading) {
       if (!clockAudioRef.current) {
@@ -77,9 +77,9 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
 
       if (clockAudioRef.current) {
         clockAudioRef.current.volume = sfxVolume * 0.6; // Dikali 0.6 biar ga kebisingan musiknya
-        clockAudioRef.current.play().catch(() => {}); // Abaikan error browser block
+        clockAudioRef.current.play().catch(() => { }); // Abaikan error browser block
       }
-    } 
+    }
     // Jika loading selesai, hentikan suara jam
     else {
       if (clockAudioRef.current) {
@@ -103,7 +103,7 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
 
   const handleTextBoxClick = useCallback(() => {
     if (isTyping) {
-      skip(); 
+      skip();
     } else {
       setTypingTrigger((prev) => prev + 1);
     }
@@ -130,7 +130,7 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
 
   const getClockAnimation = () => {
     const eraIndex: Record<string, number> = { past: 0, present: 1, future: 2 };
-    
+
     const current = eraIndex[era] ?? 1;
     const prev = eraIndex[prevEra] ?? 1; // Default 1 (present) jika pertama kali main
     // Jika era sekarang sama dengan era sebelumnya, jam diam
@@ -266,12 +266,20 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
       </div>
 
       {!loading && (
-        <div className="fixed bottom-0 left-0 flex justify-center w-full px-4 pb-12 xl:pb-10 z-40 pointer-events-none">
+        <div className="fixed bottom-0 left-0 flex justify-center w-full pb-12 xl:pb-10 z-40 pointer-events-none">
           <div className="pointer-events-auto w-full flex justify-center">
             <TextBox
               speakerName="CHRONO"
               displayedText={displayedText}
-              displayNext=""
+              displayNext={
+                <Image
+                  src="/characters/chrono-icon.png"
+                  alt="Next"
+                  width={30}
+                  height={30}
+                  className="drop-shadow-md size-8 md:size-10 xl:size-12 animate-bounce"
+                />
+              }
               isTyping={isTyping}
               onClick={handleTextBoxClick}
             />

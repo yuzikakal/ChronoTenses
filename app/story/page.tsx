@@ -122,8 +122,8 @@ export default function StoryPage() {
             alt="Chrono"
             width={400}
             height={500}
-            // Hapus transition-opacity & isFading. Pakai animate-fade-in dari global.css
-            className="w-72 md:w-80 lg:w-96 xl:w-120 animate-fade-in drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]"
+            className={`w-72 md:w-80 lg:w-96 xl:w-120 animate-fade-in drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]
+              ${isFading ? 'opacity-0' : 'opacity-100'}`}
             priority
           />
         </div>
