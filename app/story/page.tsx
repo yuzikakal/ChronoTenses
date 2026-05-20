@@ -16,9 +16,9 @@ const storyData = [
 ];
 
 const tutorialSlides = [
-  { mobile: "/tutorial/step1-mobile.png", tablet: "/tutorial/step1-tablet.png", desktop: "/tutorial/step1-desktop.png" },
-  { mobile: "/tutorial/step2-mobile.png", tablet: "/tutorial/step2-tablet.png", desktop: "/tutorial/step2-desktop.png" },
-  { mobile: "/tutorial/step3-mobile.png", tablet: "/tutorial/step3-tablet.png", desktop: "/tutorial/step3-desktop.png" },
+  { mobile: "/tutorial/step1-mobile.png", tablet: "/tutorial/step1-desktop.png", desktop: "/tutorial/step1-desktop.png" },
+  { mobile: "/tutorial/step2-mobile.png", tablet: "/tutorial/step2-desktop.png", desktop: "/tutorial/step2-desktop.png" },
+  { mobile: "/tutorial/step3-mobile.png", tablet: "/tutorial/step3-desktop.png", desktop: "/tutorial/step3-desktop.png" },
 ];
 
 export default function StoryPage() {
@@ -49,6 +49,7 @@ export default function StoryPage() {
           setIsFading(false);
         }, 300);
       } else {
+        playSfx('flip');
         setFase("tutorial");
       }
     }
@@ -86,7 +87,7 @@ export default function StoryPage() {
       {/* SKIP BUTTON (Diluar wadah fase agar selalu di atas & tidak ikut geser) */}
       <button
         onClick={() => router.push("/game")}
-        className="z-[70] absolute top-8 right-8 text-white/50 hover:text-white font-mono tracking-widest items-center flex transition-colors duration-300"
+        className="hidden md:block z-[70] absolute top-8 right-8 text-white/50 hover:text-white font-mono tracking-widest items-center flex transition-colors duration-300"
       >
         SKIP <SkipForward className="inline-block ml-1 size-10 xl:size-12" />
       </button>

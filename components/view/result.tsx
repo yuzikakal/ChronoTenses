@@ -104,7 +104,7 @@ export default function Result({ poin, log, onRestart, onExit }: ResultProps) {
         <div className={`absolute inset-0 flex justify-center items-start p-2 transition-all duration-700 ease-in-out ${showChrono ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}`}>
           <div className="pointer-events-none select-none animate-breathe pb-4">
             <Image
-              src={isWin ? "/characters/chrono-horay.png" : "/characters/chrono-wrong.png"}
+              src={isWin ? "/characters/chrono-horay.png" : "/characters/chrono-correct.png"}
               alt="Chrono Expression"
               width={400}
               height={500}
