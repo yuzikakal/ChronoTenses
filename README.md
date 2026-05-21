@@ -1,36 +1,207 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⏳ Chrono Tenses
 
-## Getting Started
+An interactive web game for learning English tenses through a time-travel adventure.
 
-First, run the development server:
+![Chrono Tenses Preview](./public/og-image.png)
+
+## ✨ About
+
+Chrono Tenses is an educational browser game built with Next.js where players travel across timelines and repair broken history by mastering English grammar tenses.
+
+Instead of traditional multiple-choice exercises, players actively type the correct answers to restore Chrono Energy and stabilize the timeline.
+
+## 🎮 Features
+
+- Interactive English tense gameplay
+- Story-driven tutorial experience
+- Real-time answer feedback
+- Timeline-based learning system
+- Responsive UI for desktop & mobile
+- Immersive visual novel inspired presentation
+- Persistent game progress using localStorage
+
+## 🧠 Learning Focus
+
+Players learn:
+
+- Present Tenses
+- Past Tenses
+- Future Tenses
+- Grammar consistency
+- Contextual sentence understanding
+
+## 🛠 Tech Stack
+
+![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Tailwind](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- Framer Motion
+- Lucide React
+
+## 🚀 Getting Started
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+git clone https://github.com/yuzikakal/ChronoTenses.git
+```
+
+Install dependencies:
+
+```bash
+npm install 
+# or 
+bun i
+```
+
+Run development server:
+
+```bash
+npm run dev 
+# or 
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser to see the result:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Project Structure
 
-## Learn More
+```txt
+app/
+ ├── game/
+ ├── story/
+ └── hooks/
+components/
+ ├── panel/
+ ├── providers/
+ └── view/
+lib/
+ └── aiEngine/
+public/
+ ├── characters/
+ ├── icons/
+ ├── music/
+ ├── sfx/
+ └── tutorial/
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌌 Gameplay Flow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```txt
+Landing Page
+   ↓
+Story & Tutorial
+   ↓
+Timeline Repair Gameplay
+   ↓
+Result Screen
+```
 
-## Deploy on Vercel
+## 📸 Screenshots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Landing Page
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+Desktop View
+
+<img src="./public/landingpage_d.png" alt="Desktop Preview" width="100%">
+
+</td>
+
+<td align="center" width="50%">
+
+Mobile View
+
+<img src="public/landingpage_m.png" alt="Mobile Preview" width="70%">
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### Story Mode
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+Desktop View
+
+<img src="./public/story_d.png" alt="Desktop Preview" width="100%">
+
+</td>
+
+<td align="center" width="50%">
+
+Mobile View
+
+<img src="public/story_m.png" alt="Mobile Preview" width="70%">
+
+</td>
+</tr>
+</table>
+
+</div>
+
+### Gameplay
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+Desktop View
+
+<img src="./public/gameplay_d.png" alt="Desktop Preview" width="100%">
+
+</td>
+
+<td align="center" width="50%">
+
+Mobile View
+
+<img src="public/gameplay_m.png" alt="Mobile Preview" width="70%">
+
+</td>
+</tr>
+</table>
+
+</div>
+
+## 🔍 SEO
+
+Chrono Tenses includes:
+
+- Sitemap support
+- Robots.txt configuration
+- Open Graph metadata
+- Twitter Cards
+- Structured Data (JSON-LD)
+
+## 👤 Author
+
+Created by Yuzikakal
+
+- GitHub: https://github.com/yuzikakal
+- Instagram  : https://instagram.com/yuzika_kalzamzami
+- Facebook   : https://facebook.com/yuzikakal2
+- Portofolio : https://yuzika5.wordpress.com
+
+## 📜 License
+
+This project is licensed for educational purposes.

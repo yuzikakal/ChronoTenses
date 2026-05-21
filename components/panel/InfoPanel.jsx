@@ -2,7 +2,7 @@
 "use client";
 import { Cinzel } from "next/font/google";
 import { useMenu } from "@/app/hooks/menuContext";
-import { X, Sparkles, ExternalLink } from "lucide-react";
+import { X, Sparkles, ExternalLink, Globe } from "lucide-react";
 import Image from "next/image";
 
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["700"] });
@@ -156,7 +156,7 @@ export default function InfoPanel() {
                 />
               </a>
 
-              <a
+              {/* <a
                 href="https://x.com/Yuzikakal"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -165,6 +165,25 @@ export default function InfoPanel() {
                 <div className="flex items-center gap-3">
                   <span className="font-black text-lg">𝕏</span>
                   <span className="font-semibold">X / Twitter</span>
+                </div>
+
+                <ExternalLink
+                  size={16}
+                  className="opacity-40 group-hover:opacity-100"
+                />
+              </a> */}
+
+              <a
+                href="https://yuzika5.wordpress.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-chrono-dark border border-white/10 p-4 rounded-2xl hover:border-chrono-gold/50 hover:bg-white/5 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="font-black text-lg">
+                    <Globe size={20} />
+                  </span>
+                  <span className="font-semibold">Portofolio</span>
                 </div>
 
                 <ExternalLink

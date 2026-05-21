@@ -97,6 +97,17 @@ export default function HomePage(): import("react/jsx-runtime").JSX.Element {
           <p className="text-base leading-relaxed">
             Navigate through different eras (Past, Present, Future). Read the timeline context, analyze the sentence, and type the correct verb form to charge the Chrono Energy. If you run out of energy or reach maximum power, your session ends.
           </p>
+
+          <h2 className="text-xl font-bold mb-3">Features</h2>
+          <ul>
+            <li>Interactive English tense gameplay</li>
+            <li>Story-driven tutorial experience</li>
+            <li>Real-time answer feedback</li>
+            <li>Timeline-based learning system</li>
+            <li>Responsive UI for desktop & mobile</li>
+            <li>Immersive visual novel inspired presentation</li>
+            <li>Persistent game progress using localStorage</li>
+          </ul>
         </section>
       </div>
     </>
