@@ -109,6 +109,11 @@ export default function GameClient() {
     window.location.reload();
   };
 
+  const toMenu = () => {
+  localStorage.clear();
+  window.location.href = "/";
+};
+
   if (!isMounted) return <main className="bg-langit bg-cover h-screen w-screen"></main>;
 
   return (
@@ -143,7 +148,7 @@ export default function GameClient() {
         )}
         
         {/* RENDER HALAMAN RESULT */}
-        {fase === "result" && <Result poin={poin} log={sessionLog} onRestart={eksekusiReset} />}
+        {fase === "result" && <Result poin={poin} log={sessionLog} onRestart={eksekusiReset} onGoHome={toMenu} />}
       </div>
 
       {showResetModal && <ResetPanel onClose={() => setShowResetModal(false)} onConfirm={eksekusiReset} />}

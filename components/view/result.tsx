@@ -21,10 +21,10 @@ type ResultProps = {
   poin: number;
   log: LogEntry[];
   onRestart: () => void;
-  onExit?: () => void;
+  onGoHome: () => void;
 };
 
-export default function Result({ poin, log, onRestart, onExit }: ResultProps) {
+export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) {
   const router = useRouter(); // Inisialisasi router
   const isWin = poin >= 100;
 
@@ -120,7 +120,10 @@ export default function Result({ poin, log, onRestart, onExit }: ResultProps) {
 
               {/* Tombol Play Again */}
               <button
-                onClick={() => { playSfx('click'); onRestart(); }}
+                onClick={() => { 
+                  playSfx('click'); 
+                  onRestart(); 
+                }}
                 className="w-full py-4 rounded-2xl font-black text-xl tracking-widest text-black bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 active:scale-[0.98] transition-all shadow-[0_5px_0_rgb(180,110,0)] hover:shadow-[0_2px_0_rgb(180,110,0)] hover:translate-y-1"
               >
                 PLAY AGAIN
@@ -129,7 +132,10 @@ export default function Result({ poin, log, onRestart, onExit }: ResultProps) {
               {/* Tombol Home & Back to Review (Sejajar) */}
               <div className="flex gap-3">
                 <button
-                  onClick={() => { playSfx('click'); router.push('/'); }} // Next.js Router ke Root
+                  onClick={() => {
+                    playSfx('click');
+                    onGoHome();
+                  }}
                   className="flex-1 py-3 rounded-2xl font-bold text-sm tracking-widest text-chrono-text bg-white/10 border border-white/20 hover:bg-white/20 active:scale-[0.98] transition-all"
                 >
                   HOME

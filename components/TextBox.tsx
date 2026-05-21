@@ -50,13 +50,13 @@ export default function TextBox({
         {speakerName}
       </div>
 
-      <p className="text-chrono-text font-medium text-center leading-relaxed min-h-[80%] w-full xl:max-w-[90%] drop-shadow-sm text-lg md:text-2xl lg:text-3xl 2xl:text-4xl">
+      <p className="text-chrono-text font-medium text-center leading-relaxed min-h-[80%] w-full xl:max-w-[90%] drop-shadow-sm text-sm md:text-2xl lg:text-3xl 2xl:text-4xl">
         {displayedText}
       </p>
 
       {!isTyping && displayNext && (
         <div className="absolute bottom-4 right-3 lg:right-8 text-chrono-gold animate-bounce">
-          <span className="text-lg md:text-3xl">{displayNext}</span>
+          <span className="text-sm md:text-lg lg:text-xl xl:text-3xl">{displayNext}</span>
         </div>
       )}
       

@@ -245,7 +245,7 @@ export default function Arena({ era, prevEra, history, onBack, onUseHint }: Aren
                       <span className="text-sm md:text-xl group-hover:scale-110 transition-transform duration-300">
                         💡
                       </span>
-                      <span className={`text-sm font-medium ${theme.hintText}`}>
+                      <span className={`text-xs md:text-sm font-medium ${theme.hintText}`}>
                         Need a Hint?
                       </span>
                     </button>

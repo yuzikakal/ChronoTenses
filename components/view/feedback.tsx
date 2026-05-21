@@ -25,7 +25,7 @@ export default function Feedback({ isCorrect, explanation, onNext }: FeedbackPro
 
   return (
     <div className="flex flex-row w-full max-w-7xl">
-      <div className={`w-full max-w-lg mx-auto bg-black/80 backdrop-blur-md p-8 md:p-10 rounded-3xl border-2 ${boxBorder} ${glow} text-center flex flex-col items-center gap-6 animate-in zoom-in-95 duration-400`}>
+      <div className={`w-full max-w-lg mx-auto bg-black/80 backdrop-blur-md p-8 md:p-10 rounded-3xl border-2 ${boxBorder} ${glow} text-center flex flex-col items-center gap-4 md:gap-6 animate-in zoom-in-95 duration-400`}>
 
         {/* Ikon dengan bayangan 3D */}
         <div className={`text-4xl p-2 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] ${isCorrect ? "animate-bounce" : "animate-pulse"}`}>
@@ -33,7 +33,7 @@ export default function Feedback({ isCorrect, explanation, onNext }: FeedbackPro
         </div>
 
         {/* Judul Feedback - Bahasa Inggris Ramah Anak */}
-        <h2 className={`text-3xl md:text-4xl font-black tracking-widest ${textColor} drop-shadow-md`}>
+        <h2 className={`text-2xl md:text-4xl font-black tracking-widest ${textColor} drop-shadow-md`}>
           {isCorrect ? "EXCELLENT!" : "SYSTEM WARNING!"}
         </h2>
 

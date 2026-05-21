@@ -42,7 +42,7 @@ export default function HomePage(): import("react/jsx-runtime").JSX.Element {
         <div className="h-4/6 w-full flex flex-col lg:flex-row justify-center items-center">
           <Image
             src="/chrono.png"
-            alt="Chrono Tenses Game Title" 
+            alt="Chrono Tenses Game Title"
             width={500}
             height={500}
             quality={75}
@@ -72,11 +72,16 @@ export default function HomePage(): import("react/jsx-runtime").JSX.Element {
             START
           </Link>
         </div>
+        <div className="fixed bottom-4 w-full text-center right-0">
+          <p className="text-white/40 text-xs tracking-wide">
+            Learn Present, Past, and Future tenses interactively.
+          </p>
+        </div>
       </main>
-       <div className="fixed -left-[9999px] top-0 w-[1px] h-[1px] overflow-hidden">
-        <section className="px-6 py-16 text-black max-w-4xl mx-auto">
+      <div className="sr-only overflow-hidden">
+        <section className="sr-only">
           <h1 className="text-3xl font-bold mb-4 text-center">Master English Tenses Interactively</h1>
-          
+
           <p className="text-base leading-relaxed mb-4 text-justify">
             Tired of boring grammar exercises? <strong>Chrono Tenses</strong> is an educational web game designed to help you master Present, Past, and Future tenses through an engaging time-travel adventure. Join Chrono, the timekeeper, to fix broken timelines by typing the correct missing words.
           </p>
@@ -90,7 +95,7 @@ export default function HomePage(): import("react/jsx-runtime").JSX.Element {
 
           <h2 className="text-xl font-bold mb-3">How To Play</h2>
           <p className="text-base leading-relaxed">
-            Navigate through different eras (Past, Present, Future). Read the timeline context, analyze the sentence, and type the correct verb form to charge the Chrono Energy. If you run out of energy or reach maximum power, your session ends. 
+            Navigate through different eras (Past, Present, Future). Read the timeline context, analyze the sentence, and type the correct verb form to charge the Chrono Energy. If you run out of energy or reach maximum power, your session ends.
           </p>
         </section>
       </div>

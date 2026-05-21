@@ -28,8 +28,7 @@ export default function StoryClient() {
   const [isFading, setIsFading] = useState(false);
   const [fase, setFase] = useState("story");
   const [currentSlide, setCurrentSlide] = useState(0);
-  
-  // 1. TAMBAHKAN playSfx di sini
+
   const { textSpeed, playSfx } = useMenu();
 
   const currentStory = storyData[currentLine];
@@ -38,6 +37,22 @@ export default function StoryClient() {
     currentStory.text,
     textSpeed
   );
+
+  useEffect(() => {
+    const preloadImages = [
+      ...storyData.map(s => s.img),
+      ...tutorialSlides.flatMap(s => [
+        s.mobile,
+        s.tablet,
+        s.desktop
+      ])
+    ];
+
+    preloadImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
 
   const handleNext = useCallback(() => {
     if (isTyping) {
@@ -84,7 +99,13 @@ export default function StoryClient() {
 
   return (
     <main className="bg-langit bg-cover h-screen flex items-center justify-center text-4xl md:text-5xl text-black bg-[75%_center] 2xl:bg-center relative overflow-hidden">
-
+      <section className="sr-only">
+        <h1>Chrono Tenses Story</h1>
+        <p>
+          Chrono Tenses is an interactive English learning game where players
+          travel through time and repair broken timelines by mastering English tenses.
+        </p>
+      </section>
       {/* SKIP BUTTON (Diluar wadah fase agar selalu di atas & tidak ikut geser) */}
       <button
         onClick={() => router.push("/game")}
@@ -95,14 +116,13 @@ export default function StoryClient() {
 
       {/* WADAH FASE (SLIDING) */}
       <div className="absolute inset-0 w-full h-full overflow-hidden bg-black/40">
-        
+
         {/* === FASE 1: DIALOG CERITA === */}
         {/* Hapus render conditional {fase == ... && }, pakai CSS translate agar animasi mulus */}
         <div className={`absolute inset-0 transition-all duration-700 ease-in-out ${fase === "tutorial" ? "-translate-x-full opacity-0 pointer-events-none" : "translate-x-0 opacity-100"}`}>
           <div className="w-full h-full bottom-0 flex flex-col items-center justify-end pb-10">
             <div className="absolute bottom-36 md:bottom-56 select-none animate-breathe cursor-pointer" onClick={handleNext}>
               <Image
-                key={currentStory.img}
                 src={currentStory.img}
                 alt="Chrono"
                 width={400}
@@ -125,7 +145,7 @@ export default function StoryClient() {
 
         {/* === FASE 2: TUTORIAL CAROUSEL === */}
         <div className={`absolute inset-0 backdrop-blur-2xl flex flex-col items-center justify-center p-6 transition-all duration-700 ease-in-out ${fase === "tutorial" ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}`}>
-          
+
           <h2 className="text-chrono-gold font-bold text-2xl md:text-4xl mb-6 tracking-[0.2em] uppercase drop-shadow-lg">
             How to Play
           </h2>
@@ -133,9 +153,29 @@ export default function StoryClient() {
           {/* Container Carousel */}
           <div className="relative w-full max-w-7xl flex-1 max-h-[80vh] bg-black/30 border border-chrono-gold/30 overflow-hidden flex items-center justify-center shadow-[0_0_50px_rgba(255,215,0,0.1)] rounded-2xl">
 
-            <Image src={tutorialSlides[currentSlide].mobile} alt={`Tutorial Step ${currentSlide + 1}`} fill className="object-contain transition-opacity duration-300 block md:hidden lg:hidden" priority />
-            <Image src={tutorialSlides[currentSlide].tablet} alt={`Tutorial Step ${currentSlide + 1}`} fill className="object-contain transition-opacity duration-300 hidden md:block lg:hidden" priority />
-            <Image src={tutorialSlides[currentSlide].desktop} alt={`Tutorial Step ${currentSlide + 1}`} fill className="object-contain transition-opacity duration-300 hidden md:hidden lg:block" priority />
+            <Image
+              src={tutorialSlides[currentSlide].mobile}
+              alt={`Tutorial Step ${currentSlide + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
+              className="object-contain transition-opacity duration-300 block md:hidden lg:hidden"
+              priority={currentSlide === 0}
+            />
+            <Image
+              src={tutorialSlides[currentSlide].tablet}
+              alt={`Tutorial Step ${currentSlide + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
+              className="object-contain transition-opacity duration-300 hidden md:block lg:hidden"
+              priority={currentSlide === 0}
+            />
+            <Image src={tutorialSlides[currentSlide].desktop}
+              alt={`Tutorial Step ${currentSlide + 1}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
+              className="object-contain transition-opacity duration-300 hidden md:hidden lg:block"
+              priority={currentSlide === 0}
+            />
 
             {currentSlide > 0 && (
               <button onClick={prevSlide} className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 p-0 md:p-3 rounded-full text-white hover:text-chrono-gold transition-all z-10 shadow-xl">
