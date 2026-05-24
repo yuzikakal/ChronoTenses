@@ -2,6 +2,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import AppProviders from "@/components/providers/AppProviders";
+import { Analytics } from "@vercel/analytics/next"
 
 export const viewport: Viewport = {
   width: "device-width",
