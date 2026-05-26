@@ -123,6 +123,7 @@ export default function RootLayout({
 
       <body className="bg-yellow-50 text-white">
         <AppProviders>{children}</AppProviders>
+        <Analytics />
       </body>
     </html>
   );
