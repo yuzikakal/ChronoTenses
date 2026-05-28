@@ -5,7 +5,7 @@ An interactive web game for learning English tenses through a time-travel advent
 ![Chrono Tenses Preview](./public/og-image.png)
 
 <div align="center">
-Live Web: [chrono-tenses.vercel.app](https://chrono-tenses.vercel.app)
+Live Web: ![chrono-tenses.vercel.app](https://chrono-tenses.vercel.app)
 </div>
 
 ## ✨ About
