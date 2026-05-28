@@ -83,8 +83,8 @@ export default function SetPanel() {
             <div className="space-y-2">
               <input 
                 type="range" min="0" max="1" step="0.1" 
-                value={bgmVolume} // PERBAIKAN: Ganti volume -> bgmVolume
-                onChange={(e) => handleBgmVolumeChange(parseFloat(e.target.value))} // PERBAIKAN: Ganti nama fungsi
+                value={bgmVolume}
+                onChange={(e) => handleBgmVolumeChange(parseFloat(e.target.value))}
                 className="w-full h-4 bg-chrono-dark border border-white/10 rounded-full appearance-none cursor-pointer accent-chrono-gold shadow-inner"
               />
               <div className="flex justify-between text-[10px] font-black text-chrono-gold/60 tracking-widest px-1">
@@ -93,7 +93,7 @@ export default function SetPanel() {
               </div>
             </div>
 
-            {/* SFX Section (BARU) */}
+            {/* SFX Section */}
             <div className="flex items-center gap-3 mt-2">
               <div className="p-2 bg-magic-purple/20 rounded-xl">
                 <Volume2 className="text-magic-purple size-6" />
@@ -115,7 +115,7 @@ export default function SetPanel() {
             </div>
           </div>
 
-          {/* === DIALOGUE SETTINGS (BARU) === */}
+          {/* === DIALOGUE SETTINGS === */}
           <div className="bg-white/5 border border-white/10 backdrop-blur-sm p-6 rounded-[2rem] flex flex-col gap-6 shadow-inner">
             
             <h2 className="text-chrono-gold font-bold tracking-widest border-b border-white/10 pb-2 flex items-center gap-2 text-sm">

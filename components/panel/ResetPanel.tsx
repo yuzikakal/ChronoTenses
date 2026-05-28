@@ -40,7 +40,7 @@ export default function ResetPanel({ onClose, onConfirm }: ResetPanelProps) {
           Are you sure you want to restart your journey? All your <span className="text-chrono-gold font-bold">Chrono Energy</span> and progress will be lost to the void of time.
         </p>
         
-        <div className="flex w-full gap-3 relative z-10">
+        <div className="flex w-full gap-3 relative z-10 text-sm md:text-base">
           {/* Tombol Batal */}
           <button 
             onClick={onClose} 

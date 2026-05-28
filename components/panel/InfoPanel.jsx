@@ -62,7 +62,7 @@ export default function InfoPanel() {
 
           {/* Developer */}
           <div className="space-y-4 px-2">
-            <p className="opacity-80 leading-relaxed text-lg md:text-base">
+            <p className="opacity-80 leading-relaxed text-base">
               This web application was developed by
               <a
                 href="https://github.com/yuzikakal"
@@ -220,7 +220,7 @@ export default function InfoPanel() {
           </div>
 
           {/* Other Game */}
-          <div className="pt-4">
+          <div className="pt-4 border-t border-white/10 space-y-4">
             <p className="text-xs uppercase tracking-[0.2em] mb-3 opacity-50 font-bold">
               ALSO PLAY:
             </p>
@@ -232,6 +232,20 @@ export default function InfoPanel() {
               rel="noopener noreferrer"
             >
               <span className="font-bold">👗 Raora Dress Up Game</span>
+
+              <ExternalLink
+                size={18}
+                className="opacity-50 group-hover:opacity-100"
+              />
+            </a>
+
+            <a
+              href="https://yuzikakal.github.io/tetorizu/tetris.html"
+              className="flex items-center justify-between bg-chrono-dark border-2 border-chrono-gold/30 p-4 rounded-2xl hover:bg-chrono-gold hover:text-chrono-dark transition-all group"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="font-bold">🎮 Tetris Game</span>
 
               <ExternalLink
                 size={18}
@@ -250,7 +264,7 @@ export default function InfoPanel() {
           {/* Footer */}
           <div className="pt-4 border-t border-white/10 text-center">
             <p className="text-[10px] md:text-xs opacity-40 font-bold tracking-[0.3em] uppercase">
-              © 2026 Chrono Tenses
+              © {new Date().getFullYear()} Chrono Tenses
             </p>
           </div>
         </div>
