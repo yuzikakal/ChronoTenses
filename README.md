@@ -4,10 +4,9 @@ An interactive web game for learning English tenses through a time-travel advent
 
 ![Chrono Tenses Preview](./public/og-image.png)
 
-<center>
-Live Web: 
-<a href='https://chrono-tenses.vercel.app'>chrono-tenses.vercel.app</a>
-</center>
+<div align="center">
+Live Web: <a href="https://chrono-tenses.vercel.app" target="_blank"> chrono-tenses.vercel.app </a>
+</div>
 
 ## ✨ About
 
@@ -99,9 +98,13 @@ public/
 ## 🌌 Gameplay Flow
 
 ```txt
-Landing Page
+Home Page
    ↓
-Story & Tutorial
+Story
+   ↓
+Tutorial
+   ↓
+Module
    ↓
 Timeline Repair Gameplay
    ↓
@@ -136,7 +139,7 @@ Mobile View
 
 </div>
 
-### Story Mode
+### Story Page
 
 <div align="center">
 
@@ -162,7 +165,7 @@ Mobile View
 
 </div>
 
-### Gameplay
+### Gameplay Page
 
 <div align="center">
 
