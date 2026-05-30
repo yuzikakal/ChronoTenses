@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Play } from "lucide-react";
+import Image from "next/image";
 
 const moduleData = [
   {
@@ -178,6 +179,14 @@ export default function GrammarPanel({ onStartMission }: { onStartMission: () =>
               {asp.name}
             </button>
           ))}
+          <Image 
+              src="/characters/chrono-icon.png"
+              alt="Next"
+              width={30}
+              height={30}
+              className="drop-shadow-md size-8 md:size-10 xl:size-12 animate-bounce fixed right-4 md:right-10"
+              draggable="false"
+            />
         </div>
 
         {/* FORMULA DISPLAY */}

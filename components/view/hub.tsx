@@ -11,7 +11,7 @@ interface HubProps {
 }
 
 export default function Hub({ onPilihEra }: HubProps) {
-  const teksHub = "Which time should we visit first, my friend?"
+  const teksHub = "Which time should we visit, my friend?"
   const { textSpeed, playSfx } = useMenu(); 
 
   const [typingTrigger, setTypingTrigger] = useState(0)
@@ -49,7 +49,7 @@ export default function Hub({ onPilihEra }: HubProps) {
         {/* Tombol PAST */}
         <button
           onClick={() => { playSfx('click'); onPilihEra("past") }}
-          className="text-chrono-dark px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-yellow-400 to-orange-500 border-b-4 border-orange-800 shadow-xl"
+          className="text-chrono-dark px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-yellow-400 to-orange-500 shadow-[0_5px_0_rgb(154,52,18)] hover:shadow-[0_2px_0_rgb(154,52,18)] hover:translate-y-[3px]"
         >
           PAST
           <Image src="/jam.png" alt="past time" width={80} height={80} className="w-16 h-16 xl:w-28 xl:h-28 motion-safe:animate-[spin_4s_linear_infinite_reverse]" loading="eager" draggable="false" />
@@ -58,7 +58,7 @@ export default function Hub({ onPilihEra }: HubProps) {
         {/* Tombol PRESENT */}
         <button
           onClick={() => { playSfx('click'); onPilihEra("present") }}
-          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-cyan-500 to-blue-600 border-b-4 border-blue-900 shadow-xl"
+          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_5px_0_rgb(30,58,138)] hover:shadow-[0_2px_0_rgb(30,58,138)] hover:translate-y-[3px]"
         >
           PRESENT
           <Image src="/jamR.png" alt="present time" width={80} height={80} className="w-16 h-16 xl:w-28 xl:h-28" loading="eager" draggable="false" />
@@ -67,7 +67,7 @@ export default function Hub({ onPilihEra }: HubProps) {
         {/* Tombol FUTURE */}
         <button
           onClick={() => { playSfx('click'); onPilihEra("future") }}
-          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-purple-600 to-indigo-600 border-b-4 border-indigo-900 shadow-xl"
+          className="text-white px-6 py-2 rounded-[1.5rem] text-xl md:text-3xl font-black transition-all active:scale-95 text-left flex flex-row justify-between items-center bg-gradient-to-r from-purple-600 to-indigo-600 shadow-[0_5px_0_rgb(55,48,163)] hover:shadow-[0_2px_0_rgb(55,48,163)] hover:translate-y-[3px]"
         >
           FUTURE
           <Image src="/jam.png" alt="future time" width={80} height={80} className="w-16 h-16 xl:w-28 xl:h-28 motion-safe:animate-[spin_4s_linear_infinite]" loading="eager" draggable="false" />

@@ -151,6 +151,7 @@ export default function StoryClient() {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
               className="object-contain transition-opacity duration-300 block md:hidden lg:hidden"
               priority={currentSlide === 0}
+              draggable="false"
             />
             <Image
               src={tutorialSlides[currentSlide].tablet}
@@ -159,6 +160,7 @@ export default function StoryClient() {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
               className="object-contain transition-opacity duration-300 hidden md:block lg:hidden"
               priority={currentSlide === 0}
+              draggable="false"
             />
             <Image src={tutorialSlides[currentSlide].desktop}
               alt={`Tutorial Step ${currentSlide + 1}`}
@@ -166,16 +168,17 @@ export default function StoryClient() {
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"
               className="object-contain transition-opacity duration-300 hidden md:hidden lg:block"
               priority={currentSlide === 0}
+              draggable="false"
             />
 
             {currentSlide > 0 && (
-              <button onClick={prevSlide} className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 p-0 md:p-3 rounded-full text-white hover:text-chrono-gold transition-all z-10 shadow-xl">
+              <button onClick={prevSlide} className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 p-0 md:p-3 rounded-full bg-black/20 text-white hover:text-chrono-gold transition-all z-10 shadow-xl">
                 <ChevronLeft size={50} className="size-10 lg:size-13" />
               </button>
             )}
 
             {currentSlide < tutorialSlides.length - 1 ? (
-              <button onClick={nextSlide} className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 p-0 md:p-3 rounded-full text-white hover:text-chrono-gold transition-all z-10 shadow-xl">
+              <button onClick={nextSlide} className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 p-0 md:p-3 rounded-full bg-black/20 text-white hover:text-chrono-gold transition-all z-10 shadow-xl">
                 <ChevronRight size={50} className="size-10 lg:size-13" />
               </button>
             ) : (

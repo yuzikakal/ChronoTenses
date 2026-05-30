@@ -25,7 +25,7 @@ type ResultProps = {
 };
 
 export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) {
-  const router = useRouter(); // Inisialisasi router
+  // const router = useRouter(); // Inisialisasi router
   const isWin = poin >= 100;
 
   const [showChrono, setShowChrono] = useState(false);
@@ -44,7 +44,7 @@ export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) 
   );
 
   const handleNext = () => {
-    playSfx('click');
+    playSfx('flip');
     setShowChrono(true);
     setShowActions(false); // Reset agar TextBox muncul duluan
     setTypingTrigger(prev => prev + 1);
@@ -68,9 +68,7 @@ export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) 
   return (
     <div className="fixed inset-0 px-4 pt-10 md:pt-16 pb-6 w-full max-w-2xl mx-auto flex flex-col items-center gap-4 md:gap-6 animate-in fade-in zoom-in duration-700 z-40">
 
-      {/* =========================================
-          HEADER STATUS
-          ========================================= */}
+      {/* HEADER STATUS  */}
       <div className="w-full bg-black/80 backdrop-blur-md p-5 md:p-6 rounded-3xl border-2 border-yellow-500/40 shadow-[0_0_30px_rgba(0,0,0,0.8)] text-center relative overflow-hidden shrink-0 z-10">
         <div className={`absolute top-0 left-0 w-full h-1 ${isWin ? "bg-green-500" : "bg-red-500"} shadow-[0_0_10px_currentColor]`}></div>
         <h1 className={`text-2xl md:text-5xl font-black tracking-widest ${isWin ? "text-green-400" : "text-red-500"} drop-shadow-lg`}>
@@ -78,13 +76,10 @@ export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) 
         </h1>
       </div>
 
-      {/* =========================================
-          WADAH KONTEN DENGAN ANIMASI SLIDE
-          ========================================= */}
       <div className="w-full flex-1 relative overflow-hidden min-h-0">
 
         {/* === FASE 1: REVIEW LOG === */}
-        <div className={`absolute inset-0 flex flex-col gap-4 pr-2 overflow-y-auto scrollbar-thin scrollbar-thumb-yellow-500/50 scrollbar-track-transparent transition-all duration-700 ease-in-out ${showChrono ? "-translate-x-full opacity-0 pointer-events-none" : "translate-x-0 opacity-100"}`}>
+        <div className={`absolute inset-0 flex flex-col gap-4 pr-2 overflow-y-auto scrollbar-thin transition-all duration-700 ease-in-out ${showChrono ? "-translate-x-full opacity-0 pointer-events-none" : "translate-x-0 opacity-100"}`}>
           {log.map((item, index) => (
             <div key={index} className={`w-full p-5 rounded-2xl border ${item.isCorrect ? "bg-green-900/30 border-green-500/50" : "bg-red-900/30 border-red-500/50"} backdrop-blur-sm relative shrink-0`}>
               <div className="absolute top-4 right-4 text-2xl">{item.isCorrect ? "✅" : "❌"}</div>
@@ -102,7 +97,7 @@ export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) 
 
         {/* === FASE 2: KARAKTER CHRONO (Tengah/Kanan) === */}
         <div className={`absolute inset-0 flex justify-center items-start p-2 transition-all duration-700 ease-in-out ${showChrono ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}`}>
-          <div className="pointer-events-none select-none animate-breathe pb-4">
+          <div className="select-none animate-breathe pb-4 cursor-pointer" onClick={handleTextBoxClick}>
             <Image
               src={isWin ? "/characters/chrono-horay.png" : "/characters/chrono-correct.png"}
               alt="Chrono Expression"
@@ -129,7 +124,7 @@ export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) 
                 PLAY AGAIN
               </button>
 
-              {/* Tombol Home & Back to Review (Sejajar) */}
+              {/* Tombol Home & Back to Review */}
               <div className="flex gap-3">
                 <button
                   onClick={() => {
@@ -160,7 +155,7 @@ export default function Result({ poin, log, onRestart, onGoHome }: ResultProps) 
       {!showChrono && (
         <button
           onClick={handleNext}
-          className="w-full py-4 rounded-2xl font-black text-xl tracking-widest text-black bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 active:scale-[0.98] transition-all shadow-[0_5px_0_rgb(180,110,0)] shrink-0 z-20"
+          className="w-full py-4 rounded-2xl font-black text-xl tracking-widest text-black bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 active:scale-[0.98] transition-all shadow-[0_5px_0_rgb(180,110,0)] hover:shadow-[0_2px_0_rgb(180,110,0)] hover:translate-y-1 shrink-0 z-20"
         >
           NEXT
         </button>
