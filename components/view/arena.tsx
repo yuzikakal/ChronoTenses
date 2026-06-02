@@ -53,7 +53,7 @@ const eraThemes: Record<string, ThemeStyle> = {
     badge: "from-fuchsia-600 to-cyan-500 shadow-[0_0_15px_rgba(217,70,239,0.6)] text-white border-cyan-900",
     inputFocus: "focus:border-cyan-400 focus:bg-[#081a2e]/80",
     hintText: "text-cyan-300",
-    hintBtn: "hover:bg-cyan-500/20 border-cyan-500/30",
+    hintBtn: "hover:bg-cyan-700/60 border-cyan-500/80",
     btn: "from-cyan-500 via-blue-500 to-fuchsia-600 hover:from-cyan-400 hover:to-fuchsia-500 shadow-[0_5px_0_rgb(134,25,143)] hover:shadow-[0_2px_0_rgb(134,25,143)] text-white",
   },
 };
