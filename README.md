@@ -36,12 +36,14 @@ Players learn:
 
 ## 🛠 Tech Stack
 
-![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Tailwind](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-- Framer Motion
-- Lucide React
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=nextjs,ts,js,tailwind,react,arch&theme=dark" alt="Tech Stack" />
+  </a>
+</div>
+
+- **Framer Motion** (Animation)
+- **Lucide React** (Icons)
 
 ## 🚀 Getting Started
 
@@ -201,6 +203,27 @@ Chrono Tenses includes:
 - Twitter Cards
 - Structured Data (JSON-LD)
 
+## 🌟 Credits & Acknowledgments
+
+While the core game concept, character designs (Chrono), and UI/UX structures are original creations, this project utilizes several royalty-free assets to bring the time-travel environment to life:
+
+- **Environmental Backgrounds:** Sourced from royalty-free illustration platforms (e.g., Freepik).
+- **Audio (BGM & SFX):** Sourced from free-to-use and royalty-free audio libraries.
+
+*Massive thanks to the open-source community and free-asset creators for making indie educational projects like this possible!*
+
+## 🤖 AI Co-Creation & Development
+
+This project was developed by leveraging AI assistance (such as Gemini/ChatGPT) for pair programming, code optimization, and architectural brainstorming. 
+
+AI was utilized for:
+- Refactoring React states and managing transition flows smoothly.
+- Optimizing Tailwind CSS classes for game layouts like scrollbars and buttons.
+- Designing prompt frameworks and AI output filter systems for dynamic grammar question evaluation.
+- Generating and structuring the core question bank.
+
+*The core game concept, gameplay loop, UI/UX structure, and character illustrations remain original works by the author.*
+
 ## 👤 Author
 
 Created by Yuzikakal
@@ -212,4 +235,4 @@ Created by Yuzikakal
 
 ## 📜 License
 
-This project is licensed for educational purposes.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
