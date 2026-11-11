@@ -66,7 +66,7 @@ CRITICAL RULES:
       };
 
       // Percobaan 1: Groq
-      try { return await attemptAI(groq("llama-3.3-70b-versatile"), "Groq (Llama 3.3 70B)"); } 
+      try { return await attemptAI(groq("openai/gpt-oss-120b"), "Groq (GPT-OSS 120B)"); } 
       catch (groqError) { console.warn(`WARN: Groq failed: ${getErrorMessage(groqError)}`); }
 
       // Percobaan 2: OpenRouter
